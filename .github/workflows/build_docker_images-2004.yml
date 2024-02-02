@@ -22,7 +22,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile-devcore-ubuntu-18.04 --tag schose/zimbra-devcore-ubuntu-18.04:$(date +%s)
     - name: copy Dockerfile
-      run: cp Dockerfile-devcore-ubuntu-18.04 Dockerfile
+      run: cp Dockerfile-devcore-ubuntu-20.04 Dockerfile
     - name: publish to docker hub
       uses: zenato/docker-action@master
       with:
