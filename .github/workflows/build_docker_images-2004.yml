@@ -3,7 +3,7 @@ name: build docker image
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 16 * * *'
+    - cron: '15 16 * * *'
 
 jobs:
 
@@ -20,13 +20,13 @@ jobs:
 
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile-devcore-ubuntu-20.04 --tag schose/zimbra-devcore-ubuntu-20.04:$(date +%s)
+      run: docker build . --file Dockerfile-devcore-ubuntu-18.04 --tag schose/zimbra-devcore-ubuntu-18.04:$(date +%s)
     - name: copy Dockerfile
-      run: cp Dockerfile-devcore-ubuntu-20.04 Dockerfile
+      run: cp Dockerfile-devcore-ubuntu-18.04 Dockerfile
     - name: publish to docker hub
       uses: zenato/docker-action@master
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: schose/zimbra-devcore-ubuntu-20.04
+          repository: schose/zimbra-devcore-ubuntu-18.04
           tag: latest
