@@ -3,7 +3,7 @@ name: build docker image for ubuntu 20.04
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 16 * * *'
+    - cron: '30 16 * * 0'
 
 jobs:
 
